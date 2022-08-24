@@ -1,0 +1,25 @@
+#insert your variable names below exactly as they are in your SPSS file. You can insert as many as you want.
+
+variables = ["variable_1", "variable_2"]
+
+#getting absolute values
+
+for variable in variables:
+    print("COMPUTE " + variable + "= abs(" + variable + "). \nEXECUTE.\n")
+
+#recode the variables
+
+for variable in variables:
+    print("RECODE \n" +
+          variable + """(3.29 thru highest = 1)(2.58 thru highest = 2)(1.96 thru highest =
+3)(Lowest thru 1.95 = 4).\nEXECUTE.\n""")
+
+#mark potential outliers
+
+for variable in variables:
+    print("VALUE LABELS " + variable + """\n4 ’Normal range’ \n3 ’Potential Outliers’ \n2 ’Probable Outliers’ \n1 ’Extreme outliers’.\n""")
+
+#frequencies command
+
+for variable in variables:
+    print("FREQUENCIES\n" + "VARIABLES=" + variable + "\n/ORDER=ANALYSIS.\n")
